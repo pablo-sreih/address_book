@@ -9,8 +9,40 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// importing user context
+// importing user, contact
 const User = require("./model/user");
+const Contact = require("./model/contact");
+
+// Add Contact
+app.post("/add-contact", async (req, res) => {
+  try{
+    console.log("request", req.body)
+    const { name, email, number, status, location } = req.body;
+
+    if(!(name && number)) {
+      res.status(400).send("Name and number are required");
+    }
+
+    const oldUser = await Contact.findOne({ number });
+
+    if (oldUser) {
+      return res.status(409).send("Number Already Exists");
+    }
+
+    const contact = await Contact.create({
+      name,
+      email,
+      number,
+      status,
+      location
+    });
+
+    res.status(201).json(contact)
+
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 // Register
 app.post("/register", async (req, res) => {
@@ -18,7 +50,7 @@ app.post("/register", async (req, res) => {
   // Our register logic starts here
   try {
     // Get user input
-    console.log("request", req.body)
+    console.log("request", res.body)
     const { first_name, last_name, email, password } = req.body;
 
     // Validate user input
@@ -31,7 +63,7 @@ app.post("/register", async (req, res) => {
     const oldUser = await User.findOne({ email });
 
     if (oldUser) {
-      return res.status(409).send("User Already Exist. Please Login");
+      return res.status(409).send("User Already Exists. Please Login");
     }
 
     //Encrypt user password
