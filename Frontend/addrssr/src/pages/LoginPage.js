@@ -5,7 +5,6 @@ const Login = () => {
     return(
         <div className="BG">
             <div className="login-container">
-                <img alt=""></img>
                 <LoginForm/>
             </div>
         </div>

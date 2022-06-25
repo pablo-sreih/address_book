@@ -34,7 +34,7 @@ function LoginForm() {
         <input type="password" ref={password} id="password" placeholder="Password"></input>
         <a>Forgot Password?</a>
         <button type="button" onClick={login}>Login</button>
-        {/* <Link to={"/signup"}>Create Account</Link> */}
+        <a>Create Account</a>
     </form>
   )
 }
