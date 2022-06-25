@@ -3,9 +3,11 @@ require("./config/database").connect();
 const express = require("express");
 const jwt = require("jsonwebtoken");
 var bcrypt = require('bcryptjs');
+var cors = require('cors')
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
