@@ -13,23 +13,45 @@ app.use(express.urlencoded({ extended: true }));
 const User = require("./model/user");
 const Contact = require("./model/contact");
 
+// Delete Contact By ID
+app.delete("/delete-contact", async (req, res) => {
+  const contact = await Contact.findOne({ _id: req.body._id }).deleteOne();
+    try {
+    res.send("Deleted Successfully");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// Get Contacts By ID
+app.post("/get-contacts", async (req, res) => {    
+  const contact = await Contact.find({ userid : req.body.userid });
+  try {
+  res.send(contact);
+  res.status(201).json(contact);
+} catch (err) {
+  console.log(err);
+}
+});
+
 // Add Contact
 app.post("/add-contact", async (req, res) => {
   try{
     console.log("request", req.body)
-    const { name, email, number, status, location } = req.body;
+    const { user_id, name, email, number, status, location } = req.body;
 
     if(!(name && number)) {
       res.status(400).send("Name and number are required");
     }
 
-    const oldUser = await Contact.findOne({ number });
+    const oldContact = await Contact.findOne({ number });
 
-    if (oldUser) {
+    if (oldContact) {
       return res.status(409).send("Number Already Exists");
     }
 
     const contact = await Contact.create({
+      user_id,
       name,
       email,
       number,
