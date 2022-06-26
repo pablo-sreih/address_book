@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 function ContactsPage() {
 
     const [contacts, setContacts] = useState([])
-
+    
     async function getContacts(){
         const id = localStorage.getItem("id")
 
@@ -33,6 +33,18 @@ function ContactsPage() {
         })
     }
 
+    async function deleteContact(id){
+        await axios.post("http://localhost:4001/delete-contact", {
+            _id: id,
+        })
+        .then(function (response) {
+            window.location.reload()
+        })
+        .catch((error) => {
+            alert("Not Deleted")
+        })
+    }
+
     useEffect(() => {
         getContacts()
     },[])
@@ -44,8 +56,9 @@ function ContactsPage() {
         {
             contacts.map((value, index) => {
                 return(
-                    <ContactBox 
-                    key = {index} 
+                    <ContactBox
+                    key = {index}
+                    clicked = {() => {deleteContact(value["_id"])}}
                     name = {value["name"]} 
                     email = {value["email"]}
                     number = {value["number"]} 

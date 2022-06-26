@@ -7,7 +7,7 @@ import { faLink, faTrash, faEnvelope, faPhone,faLocation } from '@fortawesome/fr
 function ContactBox(props) {
   return (
     <div className='contactbox'>
-        <div className='delete-button'><FontAwesomeIcon icon={faTrash} size="lg"/></div>
+        <div className='delete-button'><FontAwesomeIcon icon={faTrash} onClick={(props.clicked)} size="lg"/></div>
         <div className='contact-name'>{props.name}</div>
         <br></br>
         <div><FontAwesomeIcon icon={faEnvelope}/> {props.email}</div>

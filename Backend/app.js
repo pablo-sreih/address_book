@@ -16,7 +16,7 @@ const User = require("./model/user");
 const Contact = require("./model/contact");
 
 // Delete Contact By ID
-app.delete("/delete-contact", async (req, res) => {
+app.post("/delete-contact", async (req, res) => {
   const contact = await Contact.findOne({ _id: req.body._id }).deleteOne();
     try {
     res.send("Deleted Successfully");
@@ -44,6 +44,12 @@ app.post("/add-contact", async (req, res) => {
 
     if(!(name && number)) {
       res.status(400).send("Name and number are required");
+    }
+
+    const oldContact = await Contact.find({ number });
+
+    if (oldContact) {
+      return res.status(409).send("Number Already Exists");
     }
 
     const contact = await Contact.create({
