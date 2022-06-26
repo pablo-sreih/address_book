@@ -173,9 +173,14 @@
   width: 300px;
 }
 
+.add-contact-form select{
+  width: 324px;
+  padding: 10px;
+}
+
 .add-contact-form button{
   padding: 10px;
-  width: 320px;
+  width: 324px;
 }
 
 .add-survey-page{

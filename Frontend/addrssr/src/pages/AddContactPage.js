@@ -44,7 +44,14 @@ function AddContactPage() {
             <input ref={name} placeholder='Name'></input>
             <input ref={email} placeholder='Email'></input>
             <input ref={number} placeholder='Number'></input>
-            <input ref={status} placeholder='Status'></input>
+            <select ref={status} placeholder='Status'>
+                <option>Married</option>
+                <option>Single</option>
+                <option>Divorced</option>
+                <option>Widow</option>
+                <option>Seperated</option>
+                <option>Complicated</option>
+            </select>
             <input ref={location} placeholder='Location'></input>
             <button onClick={addContact}>Submit</button>
         </div>
