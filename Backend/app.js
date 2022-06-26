@@ -27,10 +27,10 @@ app.delete("/delete-contact", async (req, res) => {
 
 // Get Contacts By ID
 app.post("/get-contacts", async (req, res) => {    
-  const contact = await Contact.find({ userid : req.body.userid });
+  const contact = await Contact.find({ user_id : req.body.user_id });
   try {
   res.send(contact);
-  res.status(201).json(contact);
+  res.status(201);
 } catch (err) {
   console.log(err);
 }
