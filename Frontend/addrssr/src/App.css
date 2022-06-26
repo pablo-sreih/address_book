@@ -112,6 +112,17 @@
   border-bottom: 2px solid black;
 }
 
+.delete-button{
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  justify-self: center;
+}
+
+.delete-button:hover{
+  color: red;
+}
+
 .page-title{
   margin-top: 50px;
   margin-left: 50px;
