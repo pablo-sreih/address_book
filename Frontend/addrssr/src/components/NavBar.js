@@ -7,7 +7,7 @@ const NavBar = () => {
         <div className="Nav-Div">
             <img src={image} alt=""></img>
             <div className="links">
-                <a>Add Contacts</a>
+                <Link to={"/add-contact"}>Add Contacts</Link>
                 <a>Logout</a>
             </div>
         </div>

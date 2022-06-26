@@ -4,8 +4,8 @@ import axios from "axios";
 import qs from 'qs';
 
 function RegisterForm() {
-
-    // const navigate = useNavigate()
+    localStorage.clear()
+    const navigate = useNavigate()
     const name = useRef(null)
     const email = useRef(null)
     const password = useRef(null)
@@ -24,6 +24,7 @@ function RegisterForm() {
 
         .then(function (response) {
             console.log(response)
+            navigate("/contacts")
         })
 
         .catch((error) => {

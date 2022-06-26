@@ -2,7 +2,6 @@ import React from 'react'
 import ContactBox from '../components/ContactBox'
 import NavBar from '../components/NavBar'
 import axios from 'axios'
-import qs from 'qs'
 import { useState, useEffect } from 'react'
 
 function ContactsPage() {
@@ -45,8 +44,13 @@ function ContactsPage() {
         {
             contacts.map((value, index) => {
                 return(
-                    <ContactBox key = {index} name = {value["name"]} email = {value["email"]}
-                    number = {value["number"]} status = {value["status"]} location = {value["location"]}/>
+                    <ContactBox 
+                    key = {index} 
+                    name = {value["name"]} 
+                    email = {value["email"]}
+                    number = {value["number"]} 
+                    status = {value["status"]} 
+                    location = {value["location"]}/>
                 )
             })
         }
