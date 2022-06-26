@@ -46,12 +46,6 @@ app.post("/add-contact", async (req, res) => {
       res.status(400).send("Name and number are required");
     }
 
-    const oldContact = await Contact.findOne({ number });
-
-    if (oldContact) {
-      return res.status(409).send("Number Already Exists");
-    }
-
     const contact = await Contact.create({
       user_id,
       name,
