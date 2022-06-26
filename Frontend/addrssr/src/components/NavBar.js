@@ -9,7 +9,7 @@ const NavBar = () => {
             <div className="links">
                 <Link to={"/contacts"}>Contacts</Link>
                 <Link to={"/add-contact"}>Add Contacts</Link>
-                <a>Logout</a>
+                <Link to={"/"} onClick={() => {localStorage.clear()}}>Logout</Link>
             </div>
         </div>
     )

@@ -34,7 +34,7 @@ function LoginForm() {
     <form className="login-form-container">
         <input type="text" ref={email} id="email" placeholder="Email"></input>
         <input type="password" ref={password} id="password" placeholder="Password"></input>
-        <a>Forgot Password?</a>
+        <a href='#'>Forgot Password?</a>
         <button type="button" onClick={login}>Login</button>
         <Link to={"/register"}>Create Account</Link>
     </form>
