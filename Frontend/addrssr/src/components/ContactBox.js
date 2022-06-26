@@ -7,7 +7,7 @@ import { faLink, faEnvelope, faPhone,faLocation } from '@fortawesome/free-solid-
 function ContactBox(props) {
   return (
     <div className='contactbox'>
-        <div>{props.name}</div>
+        <div className='contact-name'>{props.name}</div>
         <br></br>
         <div><FontAwesomeIcon icon={faEnvelope}/> {props.email}</div>
         <div><FontAwesomeIcon icon={faPhone}/> {props.number}</div>
