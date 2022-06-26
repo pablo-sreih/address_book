@@ -3,19 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import qs from 'qs';
 
-function LoginForm() {
+function RegisterForm() {
 
     // const navigate = useNavigate()
+    const name = useRef(null)
     const email = useRef(null)
     const password = useRef(null)
 
     async function login(){
-        let data = { "email": email.current.value, "password": password.current.value }
+        let data = { "name": name.current.value,
+                    "email": email.current.value,
+                    "password": password.current.value }
 
         await axios({
             method: "POST",
             headers: { 'content-type': 'application/x-www-form-urlencoded' },
-            url: "http://localhost:4001/login",
+            url: "http://localhost:4001/register",
             data: qs.stringify(data),
         })
 
@@ -30,13 +33,13 @@ function LoginForm() {
 
   return (
     <form className="login-form-container">
+        <input type="text" ref={name} placeholder="Full Name"></input>
         <input type="text" ref={email} id="email" placeholder="Email"></input>
         <input type="password" ref={password} id="password" placeholder="Password"></input>
-        <a>Forgot Password?</a>
-        <button type="button" onClick={login}>Login</button>
-        <Link to={"/register"}>Create Account</Link>
+        <button type="button" onClick={login}>Sign Up</button>
+        <Link to={"/"}>Login Instead</Link>
     </form>
   )
 }
 
-export default LoginForm;
+export default RegisterForm;

@@ -1,16 +1,16 @@
 import React from "react";
-import LoginForm from "../components/LoginForm"
+import RegisterForm from "../components/RegisterForm"
 import image from "../assets/images/logos/addrssr.png"
 
-const LoginPage = () => {
+const RegisterPage = () => {
     return(
         <div className="BG">
             <div className="login-container">
                 <img src={image}></img>
-                <LoginForm/>
+                <RegisterForm/>
             </div>
         </div>
     )
 }
 
-export default LoginPage;
+export default RegisterPage;

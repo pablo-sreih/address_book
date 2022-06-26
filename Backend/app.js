@@ -75,10 +75,10 @@ app.post("/register", async (req, res) => {
   try {
     // Get user input
     console.log("request", res.body)
-    const { first_name, last_name, email, password } = req.body;
+    const { name, email, password } = req.body;
 
     // Validate user input
-    if (!(email && password && first_name && last_name)) {
+    if (!(email && password && name)) {
       res.status(400).send("All inputs are required");
     }
 
@@ -95,8 +95,7 @@ app.post("/register", async (req, res) => {
 
     // Create user in our database
     const user = await User.create({
-      first_name,
-      last_name,
+      name,
       email: email.toLowerCase(), // sanitize: convert email to lowercase
       password: encryptedPassword,
     });
