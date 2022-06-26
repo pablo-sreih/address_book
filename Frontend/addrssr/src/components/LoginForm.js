@@ -12,7 +12,7 @@ function LoginForm() {
     async function login(){
         let data = { "email": email.current.value, "password": password.current.value }
 
-        await axios({
+        await axios({ 
             method: "POST",
             headers: { 'content-type': 'application/x-www-form-urlencoded' },
             url: "http://localhost:4001/login",
