@@ -28,9 +28,6 @@
   margin-bottom: 70px;
 }
 
-
-
-
 .login-form-container{
   display: flex;
   flex-direction: column;
@@ -90,23 +87,27 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 80px;
-  background: linear-gradient(to right,  rgba(6, 6, 65, 1), rgba(255, 40, 213, 1))
+  height: 70px;
+  background-color: rgb(255, 217, 0);
 }
 
 .Nav-Div img{
   margin-left: 50px;
-  height: 80%;
+  height: 40%;
 }
 
 .links a{
   text-decoration: none;
-  margin-right: 50px;
-  color: white;
+  margin-right: 60px;
+  padding-bottom: 3px;
+}
+
+.links a:hover{
+  cursor: pointer;
+  border-bottom: 2px solid black;
 }
 
 .page-title{
-  color: #0E0A4B;
   margin-top: 50px;
   margin-left: 50px;
 }

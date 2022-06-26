@@ -27,7 +27,7 @@ function RegisterForm() {
         })
 
         .catch((error) => {
-            alert(error)
+            alert("User Already Exists")
         })
     }
 
