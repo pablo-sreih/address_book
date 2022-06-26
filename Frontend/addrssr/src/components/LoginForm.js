@@ -5,7 +5,7 @@ import qs from 'qs';
 
 function LoginForm() {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const email = useRef(null)
     const password = useRef(null)
 
@@ -20,11 +20,13 @@ function LoginForm() {
         })
 
         .then(function (response) {
-            console.log(response)
+            localStorage.setItem("id", response.data["_id"])
+            console.log(response.data["_id"])
+            navigate("/")
         })
 
         .catch((error) => {
-            alert(error)
+            alert("User Not Found")
         })
     }
 

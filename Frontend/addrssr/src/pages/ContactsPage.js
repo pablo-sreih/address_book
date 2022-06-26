@@ -6,7 +6,12 @@ function ContactsPage() {
   return (
     <div>
         <NavBar/>
-        <ContactBox/>
+        <div className='contact-container'>
+            <ContactBox/>
+            <ContactBox/>
+            <ContactBox/>
+            <ContactBox/>
+        </div>
     </div>
   )
 }
