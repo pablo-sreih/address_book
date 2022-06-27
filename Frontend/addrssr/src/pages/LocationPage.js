@@ -1,9 +1,9 @@
 import React from 'react'
-import { Wrapper, Map, GoogleApiWrapper } from "google-maps-react"
+import { Map, GoogleApiWrapper } from "google-maps-react"
 
 function LocationPage() {
   return (
-        <Map
+    <Map
     google = {window.google}
     style = {{width: "100%", height:"100%"}}
     zoom = {9}
