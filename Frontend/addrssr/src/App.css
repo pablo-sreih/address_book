@@ -139,6 +139,7 @@
 }
 
 .contactbox{
+  background-color: rgba(255, 217, 0, 0.3);
   text-indent: 10px;
   text-align: left;
   width: 300px;

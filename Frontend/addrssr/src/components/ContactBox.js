@@ -14,10 +14,10 @@ function ContactBox(props) {
         <div className='delete-button'><FontAwesomeIcon icon={faTrash} onClick={(props.clicked)} size="lg"/></div>
         <div className='contact-name'>{props.name}</div>
         <br></br>
-        <div><FontAwesomeIcon icon={faEnvelope}/> {props.email}</div>
-        <div><FontAwesomeIcon icon={faPhone}/> {props.number}</div>
-        <div><FontAwesomeIcon icon={faLink}/> {props.status}</div>
-        <div><FontAwesomeIcon icon={faLocation}/> {props.location}</div>
+        <div><FontAwesomeIcon icon={faEnvelope}/>&nbsp;&nbsp;&nbsp;{props.email}</div>
+        <div><FontAwesomeIcon icon={faPhone}/>&nbsp;&nbsp;&nbsp;{props.number}</div>
+        <div><FontAwesomeIcon icon={faLink}/>&nbsp;&nbsp;&nbsp;{props.status}</div>
+        <div><FontAwesomeIcon icon={faLocation}/>&nbsp;&nbsp;&nbsp;{props.location}</div>
     </div>
   )
 }
