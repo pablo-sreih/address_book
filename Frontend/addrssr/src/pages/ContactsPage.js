@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 function ContactsPage() {
 
     const [contacts, setContacts] = useState([])
+    const [search, setSearch] = useState("")
     
     async function getContacts(){
         const id = localStorage.getItem("id")
@@ -45,6 +46,17 @@ function ContactsPage() {
         })
     }
 
+    const onSearchChange = (e) => {
+        setSearch(e.target.value)
+    }
+
+    const filtered = !search ?
+        contacts :
+        contacts.filter((contact) => contact.name.toLowerCase().includes(search.toLowerCase()) ||
+        contact.email.toLowerCase().includes(search.toLowerCase()) || 
+        contact.status.toLowerCase().includes(search.toLowerCase()) ||
+        contact.number.toString().includes(search.toString()))
+
     useEffect(() => {
         getContacts()
     },[])
@@ -52,13 +64,17 @@ function ContactsPage() {
   return (
     <div>
         <NavBar/>
+        <div className='searchbar'>
+            <input placeholder='Search' type="text" value={search} onChange={onSearchChange}></input>
+        </div>
         <div className='contact-container'>
         {
-            contacts.map((value, index) => {
+            filtered.map((value, index) => {
                 return(
                     <ContactBox
                     key = {index}
-                    clicked = {() => {deleteContact(value["_id"])}}
+                    clicked = {(e) => {e.stopPropagation();
+                                deleteContact(value["_id"])}}
                     name = {value["name"]} 
                     email = {value["email"]}
                     number = {value["number"]} 
